@@ -1,0 +1,171 @@
+{
+    "type": "object",
+    "properties": {
+        "apiId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AccessLogSettings": {
+                    "description": "Settings for logging access in this stage.",
+                    "properties": {
+                        "DestinationArn": {
+                            "description": "The ARN of the CloudWatch Logs log group to receive access logs.",
+                            "type": "string"
+                        },
+                        "Format": {
+                            "description": "A single line format of the access logs of data, as specified by selected $context\n variables. The format must include at least $context.requestId.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ClientCertificateId": {
+                    "description": "The identifier of a client certificate for a Stage.",
+                    "type": "string"
+                },
+                "DefaultRouteSettings": {
+                    "description": "The default route settings for the stage.",
+                    "properties": {
+                        "DataTraceEnabled": {
+                            "description": "Specifies whether (true) or not (false) data trace\n logging is enabled for this route. This property affects the log entries pushed to\n Amazon CloudWatch Logs.",
+                            "type": "boolean"
+                        },
+                        "DetailedMetricsEnabled": {
+                            "description": "Specifies whether detailed metrics are enabled.",
+                            "type": "boolean"
+                        },
+                        "LoggingLevel": {
+                            "description": "Specifies the logging level for this route: DEBUG, INFO,\n or WARN. This property affects the log entries pushed to Amazon\n CloudWatch Logs.",
+                            "enum": [
+                                "ERROR",
+                                "INFO",
+                                "false"
+                            ],
+                            "type": "string"
+                        },
+                        "ThrottlingBurstLimit": {
+                            "description": "Specifies the throttling burst limit.",
+                            "type": "integer"
+                        },
+                        "ThrottlingRateLimit": {
+                            "description": "Specifies the throttling rate limit.",
+                            "format": "double",
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DeploymentId": {
+                    "description": "The deployment identifier of the API stage.",
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "The description for the API stage.",
+                    "type": "string"
+                },
+                "RouteSettings": {
+                    "description": "Route settings for the stage.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "Represents a collection of route settings.",
+                                "properties": {
+                                    "DataTraceEnabled": {
+                                        "description": "Specifies whether (true) or not (false) data trace\n logging is enabled for this route. This property affects the log entries pushed to\n Amazon CloudWatch Logs.",
+                                        "type": "boolean"
+                                    },
+                                    "DetailedMetricsEnabled": {
+                                        "description": "Specifies whether detailed metrics are enabled.",
+                                        "type": "boolean"
+                                    },
+                                    "LoggingLevel": {
+                                        "description": "Specifies the logging level for this route: DEBUG, INFO,\n or WARN. This property affects the log entries pushed to Amazon\n CloudWatch Logs.",
+                                        "enum": [
+                                            "ERROR",
+                                            "INFO",
+                                            "false"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "ThrottlingBurstLimit": {
+                                        "description": "Specifies the throttling burst limit.",
+                                        "type": "integer"
+                                    },
+                                    "ThrottlingRateLimit": {
+                                        "description": "Specifies the throttling rate limit.",
+                                        "format": "double",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "StageName": {
+                    "description": "The name of the stage.",
+                    "type": "string"
+                },
+                "StageVariables": {
+                    "description": "A map that defines the stage variables for a Stage. Variable names\n can have alphanumeric and underscore characters, and the values must match\n [A-Za-z0-9-._~:/?#&=,]+.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "A string with a length between [0-2048].",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StageName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

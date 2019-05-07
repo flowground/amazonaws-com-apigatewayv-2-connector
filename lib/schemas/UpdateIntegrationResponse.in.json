@@ -1,0 +1,94 @@
+{
+    "type": "object",
+    "properties": {
+        "apiId": {
+            "required": true,
+            "type": "string"
+        },
+        "integrationId": {
+            "required": true,
+            "type": "string"
+        },
+        "integrationResponseId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ContentHandlingStrategy": {
+                    "description": "<p>Specifies how to handle response payload content type conversions. Supported\n values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the\n following behaviors:</p><p>\n CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded\n string to the corresponding binary blob.</p><p>\n CONVERT_TO_TEXT: Converts a response payload from a binary blob to a\n Base64-encoded string.</p><p>If this property is not defined, the response payload will be passed through from\n the integration response to the route response or method response without\n modification.</p>",
+                    "enum": [
+                        "CONVERT_TO_BINARY",
+                        "CONVERT_TO_TEXT"
+                    ],
+                    "type": "string"
+                },
+                "IntegrationResponseKey": {
+                    "description": "The integration response key.",
+                    "type": "string"
+                },
+                "ResponseParameters": {
+                    "description": "A key-value map specifying response parameters that are passed to the method\n response from the backend. The key is a method response header parameter name and the\n mapped value is an integration response header value, a static value enclosed within\n a pair of single quotes, or a JSON expression from the integration response body. The\n mapping key must match the pattern of\n method.response.header.{name}\n , where name is a valid and unique header name. The mapped non-static value\n must match the pattern of\n integration.response.header.{name}\n  or\n integration.response.body.{JSON-expression}\n , where \n {name}\n  is a valid and unique response header name and \n {JSON-expression}\n  is a valid JSON expression without the $ prefix.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "A string with a length between [1-512].",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ResponseTemplates": {
+                    "description": "The collection of response templates for the integration response as a\n string-to-string map of key-value pairs. Response templates are represented as a\n key/value map, with a content-type as the key and a template as the value.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "A string with a length between [0-32768].",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "TemplateSelectionExpression": {
+                    "description": "The template selection expression for the integration response.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

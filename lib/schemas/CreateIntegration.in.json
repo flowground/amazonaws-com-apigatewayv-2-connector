@@ -1,0 +1,147 @@
+{
+    "type": "object",
+    "properties": {
+        "apiId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ConnectionId": {
+                    "description": "The connection ID.",
+                    "type": "string"
+                },
+                "ConnectionType": {
+                    "description": "The type of the network connection to the integration endpoint. Currently the only\n valid value is INTERNET, for connections through the public routable\n internet.",
+                    "enum": [
+                        "INTERNET",
+                        "VPC_LINK"
+                    ],
+                    "type": "string"
+                },
+                "ContentHandlingStrategy": {
+                    "description": "<p>Specifies how to handle response payload content type conversions. Supported\n values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the\n following behaviors:</p><p>\n CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded\n string to the corresponding binary blob.</p><p>\n CONVERT_TO_TEXT: Converts a response payload from a binary blob to a\n Base64-encoded string.</p><p>If this property is not defined, the response payload will be passed through from\n the integration response to the route response or method response without\n modification.</p>",
+                    "enum": [
+                        "CONVERT_TO_BINARY",
+                        "CONVERT_TO_TEXT"
+                    ],
+                    "type": "string"
+                },
+                "CredentialsArn": {
+                    "description": "Specifies the credentials required for the integration, if any. For AWS\n integrations, three options are available. To specify an IAM Role for API Gateway to\n assume, use the role's Amazon Resource Name (ARN). To require that the caller's\n identity be passed through from the request, specify the string\n arn:aws:iam::*:user/*. To use resource-based permissions on supported\n AWS services, specify null.",
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "The description of the integration.",
+                    "type": "string"
+                },
+                "IntegrationMethod": {
+                    "description": "Specifies the integration's HTTP method type.",
+                    "type": "string"
+                },
+                "IntegrationType": {
+                    "description": "<p>The integration type of an integration. One of the following:</p><p>\n AWS: for integrating the route or method request with an AWS service\n action, including the Lambda function-invoking action. With the Lambda\n function-invoking action, this is referred to as the Lambda custom integration. With\n any other AWS service action, this is known as AWS integration.</p><p>\n AWS_PROXY: for integrating the route or method request with the Lambda\n function-invoking action with the client request passed through as-is. This\n integration is also referred to as Lambda proxy integration.</p><p>\n HTTP: for integrating the route or method request with an HTTP\n endpoint. This\n integration is also referred to as HTTP custom integration.</p><p>\n HTTP_PROXY: for integrating route or method request with an HTTP\n endpoint, with the client\n request passed through as-is. This is also referred to as HTTP proxy\n integration.</p><p>\n MOCK: for integrating the route or method request with API Gateway as a\n \"loopback\" endpoint without invoking any backend.</p>",
+                    "enum": [
+                        "AWS",
+                        "HTTP",
+                        "MOCK",
+                        "HTTP_PROXY",
+                        "AWS_PROXY"
+                    ],
+                    "type": "string"
+                },
+                "IntegrationUri": {
+                    "description": "For a Lambda proxy integration, this is the URI of the Lambda function.",
+                    "type": "string"
+                },
+                "PassthroughBehavior": {
+                    "description": "<p>Specifies the pass-through behavior for incoming requests based on the\n Content-Type header in the request, and the available mapping\n templates specified as the requestTemplates property on the\n Integration resource. There are three valid values:\n WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and\n NEVER.</p><p>\n WHEN_NO_MATCH passes the request body for unmapped content types through\n to the integration backend without transformation.</p><p>\n NEVER rejects unmapped content types with an HTTP 415 Unsupported\n Media Type response.</p><p>\n WHEN_NO_TEMPLATES allows pass-through when the integration has no\n content types mapped to templates. However, if there is at least one content type\n defined, unmapped content types will be rejected with the same HTTP 415\n Unsupported Media Type response.</p>",
+                    "enum": [
+                        "WHEN_NO_MATCH",
+                        "NEVER",
+                        "WHEN_NO_TEMPLATES"
+                    ],
+                    "type": "string"
+                },
+                "RequestParameters": {
+                    "description": "A key-value map specifying request parameters that are passed from the method\n request to the backend. The key is an integration request parameter name and the\n associated value is a method request parameter value or static value that must be\n enclosed within single quotes and pre-encoded as required by the backend. The method\n request parameter value must match the pattern of\n method.request.{location}.{name}\n , where \n {location}\n  is querystring, path, or header; and \n {name}\n  must be a valid and unique method request parameter name.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "A string with a length between [1-512].",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "RequestTemplates": {
+                    "description": "Represents a map of Velocity templates that are applied on the request payload\n based on the value of the Content-Type header sent by the client. The content type\n value is the key in this map, and the template (as a String) is the value.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "A string with a length between [0-32768].",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "TemplateSelectionExpression": {
+                    "description": "The template selection expression for the integration.",
+                    "type": "string"
+                },
+                "TimeoutInMillis": {
+                    "description": "Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000\n milliseconds or 29 seconds.",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "IntegrationType"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

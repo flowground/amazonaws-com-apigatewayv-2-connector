@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "apiId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AuthorizerCredentialsArn": {
+                    "description": "Specifies the required credentials as an IAM role for API Gateway to invoke the\n authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon\n Resource Name (ARN). To use resource-based permissions on the Lambda function,\n specify null.",
+                    "type": "string"
+                },
+                "AuthorizerResultTtlInSeconds": {
+                    "description": "The time to live (TTL), in seconds, of cached authorizer results. If it equals 0,\n authorization caching is disabled. If it is greater than 0, API Gateway will cache\n authorizer responses. If this field is not set, the default value is 300. The maximum\n value is 3600, or 1 hour.",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648,
+                    "type": "integer"
+                },
+                "AuthorizerType": {
+                    "description": "The authorizer type. Currently the only valid value is REQUEST, for a\n Lambda function using incoming request parameters.",
+                    "enum": [
+                        "REQUEST"
+                    ],
+                    "type": "string"
+                },
+                "AuthorizerUri": {
+                    "description": "The authorizer's Uniform Resource Identifier (URI). For\n REQUEST authorizers, this must be a\n well-formed Lambda function URI, for example,\n arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations.\n In general, the URI has this form:\n arn:aws:apigateway:{region}:lambda:path/{service_api}\n , where {region} is the same as the region hosting the Lambda\n function, path indicates that the remaining substring in the URI should be treated as\n the path to the resource, including the initial /. For Lambda functions,\n this is usually of the form\n /2015-03-31/functions/[FunctionARN]/invocations.",
+                    "type": "string"
+                },
+                "IdentitySource": {
+                    "description": "<p>The identity source for which authorization is requested.</p><p>For the REQUEST authorizer, this is required when authorization\n caching is enabled. The value is a comma-separated string of one or more mapping\n expressions of the specified request parameters. For example, if an Auth\n header and a Name query string parameters are defined as identity\n sources, this value is method.request.header.Auth,\n method.request.querystring.Name. These parameters will be used to\n derive the authorization caching key and to perform runtime validation of the\n REQUEST authorizer by verifying all of the identity-related request\n parameters are present, not null, and non-empty. Only when this is true does the\n authorizer invoke the authorizer Lambda function, otherwise, it returns a 401\n Unauthorized response without calling the Lambda function. The valid value\n is a string of comma-separated mapping expressions of the specified request\n parameters. When the authorization caching is not enabled, this property is\n optional.</p>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "IdentityValidationExpression": {
+                    "description": "The\n validation expression does not apply to the REQUEST authorizer.",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "The name of the authorizer.",
+                    "type": "string"
+                },
+                "ProviderArns": {
+                    "description": "For\n REQUEST authorizer, this is not\n defined.",
+                    "items": {
+                        "description": "Represents an Amazon Resource Name (ARN).",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "AuthorizerUri",
+                "AuthorizerType",
+                "IdentitySource",
+                "Name"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

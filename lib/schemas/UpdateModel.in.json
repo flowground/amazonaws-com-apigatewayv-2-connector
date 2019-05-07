@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "apiId": {
+            "required": true,
+            "type": "string"
+        },
+        "modelId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ContentType": {
+                    "description": "The content-type for the model, for example, \"application/json\".",
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "The description of the model.",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "The name of the model.",
+                    "type": "string"
+                },
+                "Schema": {
+                    "description": "The schema for the model. For application/json models, this should be JSON schema\n draft 4 model.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

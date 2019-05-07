@@ -1,0 +1,992 @@
+{
+    "title": "AmazonApiGatewayV2",
+    "description": "Amazon API Gateway V2",
+    "docsUrl": "https://aws.amazon.com/apigateway/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/apigatewayv2/2018-11-29/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://apigateway.amazonaws.com/",
+                    "http://apigateway.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "GetApis": {
+            "main": "./lib/actions/GetApis.js",
+            "title": "Gets a collection of Api resources.",
+            "description": "Gets a collection of Api resources.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetApis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateApi": {
+            "main": "./lib/actions/CreateApi.js",
+            "title": "Creates an Api resource.",
+            "description": "Creates an Api resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateApi.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteApi": {
+            "main": "./lib/actions/DeleteApi.js",
+            "title": "Deletes an Api resource.",
+            "description": "Deletes an Api resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteApi.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetApi": {
+            "main": "./lib/actions/GetApi.js",
+            "title": "Gets an Api resource.",
+            "description": "Gets an Api resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetApi.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateApi": {
+            "main": "./lib/actions/UpdateApi.js",
+            "title": "Updates an Api resource.",
+            "description": "Updates an Api resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateApi.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetAuthorizers": {
+            "main": "./lib/actions/GetAuthorizers.js",
+            "title": "Gets the Authorizers for an API.",
+            "description": "Gets the Authorizers for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetAuthorizers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateAuthorizer": {
+            "main": "./lib/actions/CreateAuthorizer.js",
+            "title": "Creates an Authorizer for an API.",
+            "description": "Creates an Authorizer for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateAuthorizer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteAuthorizer": {
+            "main": "./lib/actions/DeleteAuthorizer.js",
+            "title": "Deletes an Authorizer.",
+            "description": "Deletes an Authorizer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteAuthorizer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetAuthorizer": {
+            "main": "./lib/actions/GetAuthorizer.js",
+            "title": "Gets an Authorizer.",
+            "description": "Gets an Authorizer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetAuthorizer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateAuthorizer": {
+            "main": "./lib/actions/UpdateAuthorizer.js",
+            "title": "Updates an Authorizer.",
+            "description": "Updates an Authorizer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateAuthorizer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeployments": {
+            "main": "./lib/actions/GetDeployments.js",
+            "title": "Gets the Deployments for an API.",
+            "description": "Gets the Deployments for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeployments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateDeployment": {
+            "main": "./lib/actions/CreateDeployment.js",
+            "title": "Creates a Deployment for an API.",
+            "description": "Creates a Deployment for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateDeployment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteDeployment": {
+            "main": "./lib/actions/DeleteDeployment.js",
+            "title": "Deletes a Deployment.",
+            "description": "Deletes a Deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteDeployment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeployment": {
+            "main": "./lib/actions/GetDeployment.js",
+            "title": "Gets a Deployment.",
+            "description": "Gets a Deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeployment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateDeployment": {
+            "main": "./lib/actions/UpdateDeployment.js",
+            "title": "Updates a Deployment.",
+            "description": "Updates a Deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateDeployment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetIntegrations": {
+            "main": "./lib/actions/GetIntegrations.js",
+            "title": "Gets the Integrations for an API.",
+            "description": "Gets the Integrations for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetIntegrations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateIntegration": {
+            "main": "./lib/actions/CreateIntegration.js",
+            "title": "Creates an Integration.",
+            "description": "Creates an Integration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateIntegration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteIntegration": {
+            "main": "./lib/actions/DeleteIntegration.js",
+            "title": "Deletes an Integration.",
+            "description": "Deletes an Integration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteIntegration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetIntegration": {
+            "main": "./lib/actions/GetIntegration.js",
+            "title": "Gets an Integration.",
+            "description": "Gets an Integration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetIntegration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateIntegration": {
+            "main": "./lib/actions/UpdateIntegration.js",
+            "title": "Updates an Integration.",
+            "description": "Updates an Integration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateIntegration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetIntegrationResponses": {
+            "main": "./lib/actions/GetIntegrationResponses.js",
+            "title": "Gets the IntegrationResponses for an Integration.",
+            "description": "Gets the IntegrationResponses for an Integration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetIntegrationResponses.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateIntegrationResponse": {
+            "main": "./lib/actions/CreateIntegrationResponse.js",
+            "title": "Creates an IntegrationResponses.",
+            "description": "Creates an IntegrationResponses.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateIntegrationResponse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteIntegrationResponse": {
+            "main": "./lib/actions/DeleteIntegrationResponse.js",
+            "title": "Deletes an IntegrationResponses.",
+            "description": "Deletes an IntegrationResponses.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteIntegrationResponse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetIntegrationResponse": {
+            "main": "./lib/actions/GetIntegrationResponse.js",
+            "title": "Gets an IntegrationResponses.",
+            "description": "Gets an IntegrationResponses.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetIntegrationResponse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateIntegrationResponse": {
+            "main": "./lib/actions/UpdateIntegrationResponse.js",
+            "title": "Updates an IntegrationResponses.",
+            "description": "Updates an IntegrationResponses.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateIntegrationResponse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetModels": {
+            "main": "./lib/actions/GetModels.js",
+            "title": "Gets the Models for an API.",
+            "description": "Gets the Models for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetModels.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateModel": {
+            "main": "./lib/actions/CreateModel.js",
+            "title": "Creates a Model for an API.",
+            "description": "Creates a Model for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateModel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteModel": {
+            "main": "./lib/actions/DeleteModel.js",
+            "title": "Deletes a Model.",
+            "description": "Deletes a Model.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteModel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetModel": {
+            "main": "./lib/actions/GetModel.js",
+            "title": "Gets a Model.",
+            "description": "Gets a Model.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetModel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateModel": {
+            "main": "./lib/actions/UpdateModel.js",
+            "title": "Updates a Model.",
+            "description": "Updates a Model.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateModel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetModelTemplate": {
+            "main": "./lib/actions/GetModelTemplate.js",
+            "title": "Gets a model template.",
+            "description": "Gets a model template.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetModelTemplate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetRoutes": {
+            "main": "./lib/actions/GetRoutes.js",
+            "title": "Gets the Routes for an API.",
+            "description": "Gets the Routes for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetRoutes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateRoute": {
+            "main": "./lib/actions/CreateRoute.js",
+            "title": "Creates a Route for an API.",
+            "description": "Creates a Route for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteRoute": {
+            "main": "./lib/actions/DeleteRoute.js",
+            "title": "Deletes a Route.",
+            "description": "Deletes a Route.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetRoute": {
+            "main": "./lib/actions/GetRoute.js",
+            "title": "Gets a Route.",
+            "description": "Gets a Route.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateRoute": {
+            "main": "./lib/actions/UpdateRoute.js",
+            "title": "Updates a Route.",
+            "description": "Updates a Route.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateRoute.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetRouteResponses": {
+            "main": "./lib/actions/GetRouteResponses.js",
+            "title": "Gets the RouteResponses for a Route.",
+            "description": "Gets the RouteResponses for a Route.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetRouteResponses.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateRouteResponse": {
+            "main": "./lib/actions/CreateRouteResponse.js",
+            "title": "Creates a RouteResponse for a Route.",
+            "description": "Creates a RouteResponse for a Route.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateRouteResponse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteRouteResponse": {
+            "main": "./lib/actions/DeleteRouteResponse.js",
+            "title": "Deletes a RouteResponse.",
+            "description": "Deletes a RouteResponse.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteRouteResponse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetRouteResponse": {
+            "main": "./lib/actions/GetRouteResponse.js",
+            "title": "Gets a RouteResponse.",
+            "description": "Gets a RouteResponse.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetRouteResponse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateRouteResponse": {
+            "main": "./lib/actions/UpdateRouteResponse.js",
+            "title": "Updates a RouteResponse.",
+            "description": "Updates a RouteResponse.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateRouteResponse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetStages": {
+            "main": "./lib/actions/GetStages.js",
+            "title": "Gets the Stages for an API.",
+            "description": "Gets the Stages for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetStages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateStage": {
+            "main": "./lib/actions/CreateStage.js",
+            "title": "Creates a Stage for an API.",
+            "description": "Creates a Stage for an API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateStage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteStage": {
+            "main": "./lib/actions/DeleteStage.js",
+            "title": "Deletes a Stage.",
+            "description": "Deletes a Stage.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteStage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetStage": {
+            "main": "./lib/actions/GetStage.js",
+            "title": "Gets a Stage.",
+            "description": "Gets a Stage.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetStage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateStage": {
+            "main": "./lib/actions/UpdateStage.js",
+            "title": "Updates a Stage.",
+            "description": "Updates a Stage.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateStage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDomainNames": {
+            "main": "./lib/actions/GetDomainNames.js",
+            "title": "Gets the domain names for an AWS account.",
+            "description": "Gets the domain names for an AWS account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDomainNames.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateDomainName": {
+            "main": "./lib/actions/CreateDomainName.js",
+            "title": "Creates a domain name.",
+            "description": "Creates a domain name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateDomainName.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteDomainName": {
+            "main": "./lib/actions/DeleteDomainName.js",
+            "title": "Deletes a domain name.",
+            "description": "Deletes a domain name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteDomainName.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDomainName": {
+            "main": "./lib/actions/GetDomainName.js",
+            "title": "Gets a domain name.",
+            "description": "Gets a domain name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDomainName.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateDomainName": {
+            "main": "./lib/actions/UpdateDomainName.js",
+            "title": "Updates a domain name.",
+            "description": "Updates a domain name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateDomainName.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetApiMappings": {
+            "main": "./lib/actions/GetApiMappings.js",
+            "title": "The API mappings.",
+            "description": "The API mappings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetApiMappings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateApiMapping": {
+            "main": "./lib/actions/CreateApiMapping.js",
+            "title": "Creates an API mapping.",
+            "description": "Creates an API mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateApiMapping.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteApiMapping": {
+            "main": "./lib/actions/DeleteApiMapping.js",
+            "title": "Deletes an API mapping.",
+            "description": "Deletes an API mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteApiMapping.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetApiMapping": {
+            "main": "./lib/actions/GetApiMapping.js",
+            "title": "The API mapping.",
+            "description": "The API mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetApiMapping.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateApiMapping": {
+            "main": "./lib/actions/UpdateApiMapping.js",
+            "title": "The API mapping.",
+            "description": "The API mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateApiMapping.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

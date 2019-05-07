@@ -1,0 +1,85 @@
+{
+    "type": "object",
+    "properties": {
+        "domainName": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "DomainNameConfigurations": {
+                    "description": "The domain name configurations.",
+                    "items": {
+                        "description": "The domain name configuration.",
+                        "properties": {
+                            "ApiGatewayDomainName": {
+                                "description": "A domain name for the WebSocket API.",
+                                "type": "string"
+                            },
+                            "CertificateArn": {
+                                "description": "An AWS-managed certificate that will be used by the edge-optimized endpoint for\n this domain name. AWS Certificate Manager is the only supported source.",
+                                "type": "string"
+                            },
+                            "CertificateName": {
+                                "description": "The user-friendly name of the certificate that will be used by the edge-optimized\n endpoint for this domain name.",
+                                "type": "string"
+                            },
+                            "CertificateUploadDate": {
+                                "description": "The timestamp when the certificate that was used by edge-optimized endpoint for\n this domain name was uploaded.",
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "EndpointType": {
+                                "description": "The endpoint type.",
+                                "enum": [
+                                    "REGIONAL",
+                                    "EDGE"
+                                ],
+                                "type": "string"
+                            },
+                            "HostedZoneId": {
+                                "description": "The Amazon Route 53 Hosted Zone ID of the endpoint.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

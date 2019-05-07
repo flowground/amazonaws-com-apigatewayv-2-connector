@@ -1,0 +1,95 @@
+{
+    "type": "object",
+    "properties": {
+        "apiId": {
+            "required": true,
+            "type": "string"
+        },
+        "routeId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ModelSelectionExpression": {
+                    "description": "The model selection expression for the route response.",
+                    "type": "string"
+                },
+                "ResponseModels": {
+                    "description": "The response models for the route response.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "A string with a length between [1-128].",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ResponseParameters": {
+                    "description": "The route response parameters.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "Validation constraints imposed on parameters of a request (path, query string,\n headers).",
+                                "properties": {
+                                    "Required": {
+                                        "description": "Whether or not the parameter is required.",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "RouteResponseKey": {
+                    "description": "The route response key.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "RouteResponseKey"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
